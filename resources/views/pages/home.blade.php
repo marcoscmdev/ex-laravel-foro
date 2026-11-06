@@ -5,7 +5,7 @@
         <li class="flex justify-between gap-4 py-4">
             <div class="flex gap-4">
                 <div class="size-8 rounded-full flex items-center justify-center" style="background-color:{{ $question->category->color }};">
-                    <!-- logo -->
+                   <x-forum.logo class="h-6 text-white"/>
                 </div>
                 <div class="flex-auto">
                     <p class="text-sm font-semibold text-gray-900">

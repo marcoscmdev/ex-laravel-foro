@@ -19,7 +19,12 @@ class Question extends Model
     {
         return $this->belongsTo(Category::class);
     } 
-    
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
+
+
     public function user()
     {
         return $this->belongsTo(User::class);
