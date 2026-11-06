@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index'])->name('home');
 Route::get('questions/{question}', [QuestionController::class, 'show'])->name('questions.show');
+Route::delete('questions/{question}', [QuestionController::class, 'destroy'])->name('questions.destroy');
 /* Route::view('/', 'welcome')->name('home'); */
 Route::post('answer/{question}', [AnswerController::class, 'storeAnswer'])->name('answer.store');
 Route::middleware(['auth', 'verified'])->group(function () {

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasHeart;
 use Database\Factories\CommentFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -9,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     /** @use HasFactory<CommentFactory> */
-    use HasFactory;
+    use HasFactory, HasHeart;
 
     protected $fillable = ['content', 'user_id'];
 
@@ -17,24 +18,5 @@ class Comment extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function hearts()
-    {
-        return $this->morphMany(Heart::class, 'heartable');
-    }
-    public function isHeartedBy()
-    {
-        return $this->hearts()->where('user_id', 20)->exists();
-    }
-
-    public function heart()
-    {
-        $this->hearts()->create([
-            'user_id' => 20,
-        ]);
-    }
-
-    public function unheart()
-    {
-        $this->hearts()->where('user_id', 20)->delete();
-    }
+   
 }

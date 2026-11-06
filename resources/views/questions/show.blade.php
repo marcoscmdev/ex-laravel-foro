@@ -22,7 +22,7 @@
                         Edit
                     </a>
 
-                    <form action="#" onsubmit="return confirm('¿Estás seguro de eliminar esta pregunta?');">
+                    <form action="{{route('questions.destroy', $question  ) }}" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar esta pregunta?');">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="rounded-md bg-red-600 hover:bg-red-500 px-2 py-1 text-xs font-semibold text-white cursor-pointer">
