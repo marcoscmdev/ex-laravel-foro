@@ -19,12 +19,14 @@ new class extends Component
 ?>
 
 <div>
+    @auth
     <a wire:click="toggle" class="cursor-pointer">
        @if($heartable->isHeartedBy())
         <span class="text-red-600">&hearts;</span>
         @else
         <span class="text-gray-600">&hearts;</span>
         @endif
+        @endauth
     </a>
 </div>
 

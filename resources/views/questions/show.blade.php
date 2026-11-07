@@ -17,6 +17,7 @@
                     {{$question->created_at->format('d M Y')}}
                 </p>
 
+                @auth
                 <div class="flex items-center gap-2">
                     <a href="{{route('questions.edit', $question )}}" class="text-xs font-semibold hover:underline">
                         Edit
@@ -30,6 +31,7 @@
                         </button>
                     </form>
                 </div>
+                @endauth
             </div>
         </div>
     </div>
@@ -115,6 +117,7 @@
     </ul>
 
    <div class="mt-8">
+    @auth
     <h3 class="text-lg font-semibold mb-2">Tu Respuesta...</h3>
 
     <form action="{{route('answer.store', $question)}}" method="POST">
@@ -129,6 +132,13 @@
             Enviar Respuesta
         </button>
     </form>
+    @else
+    <p class="text-gray-500">
+        <a href="{{route('login')}}" class="text-blue-600 hover::underline">
+            Inicia sesión para responder
+        </a>
+    </p>
+    @endauth
 </div>
 
 </x-forum.layouts.app>
