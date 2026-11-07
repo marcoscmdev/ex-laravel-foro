@@ -6,11 +6,12 @@ use App\Traits\HasHeart;
 use Database\Factories\QuestionFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Italofantone\Sluggable\Sluggable;
 
 class Question extends Model
 {
     /** @use HasFactory<QuestionFactory> */
-    use HasFactory, HasHeart;
+    use HasFactory, HasHeart, Sluggable;
 
 protected $fillable = [
         'user_id',
