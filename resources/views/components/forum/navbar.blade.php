@@ -6,7 +6,7 @@
                 </div>
                 
                 <div class="flex gap-4">
-                    <a href="{{route('home')}}" class="text-sm font-semibold">Foro</a>
+                    <a href="{{route('questions.index')}}" class="text-sm font-semibold">Foro</a>
                     <a href="#" class="text-sm font-semibold">Blog</a>
                 </div>
                 
